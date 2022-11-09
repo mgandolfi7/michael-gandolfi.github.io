@@ -14,10 +14,9 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+
+    return Array.isArray(value)
+
     // YOUR CODE ABOVE HERE //
 }
 
@@ -32,11 +31,14 @@ function isArray(value) {
 function isObject(value) {
     // YOUR CODE BELOW HERE //
     
-    
-    
-    
+if (Object.prototype.toString.call(value) === '[object Object]') {
+    return true
+} else {
+    return false
+}
     // YOUR CODE ABOVE HERE //
 }
+
 
 /** 
  * Given an input value, return true if is either an Array or an an Object 
@@ -47,6 +49,11 @@ function isObject(value) {
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
     
+    if (Object.prototype.toString.call(value) === '[object Object]' || Array.isArray(value)) {
+        return true
+    } else {
+        return false
+    }
     
     
     
@@ -74,8 +81,26 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
-    
+
+    if (typeof value === 'number') {
+        return 'number'
+    } else if (typeof value === 'string') {
+        return 'string'
+    } else if (typeof value === true || false) {
+        return 'boolean'
+    } else if (typeof value === 'undefined') {
+        return 'undefined'
+    } else if (value === null) {
+        return 'null'
+    } else if (typeof value === 'function') {
+        return 'function'
+    } else if (Array.isArray(value) === true) {
+        return 'array'
+    } else if (Object.prototype.toString.call(value) === '[object Object]') {
+        return 'object'
+    } else if (Object.prototype.toString.call(value) === '[object Date]') {
+        return 'date'
+    }
     
     
     // YOUR CODE ABOVE HERE //
