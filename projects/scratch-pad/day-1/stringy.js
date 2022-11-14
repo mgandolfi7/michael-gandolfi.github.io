@@ -180,9 +180,9 @@ function sortAscending(stringOne, stringTwo) {
 
     // if else chain to check if alphabetical order is correct
     if (stringOne > stringTwo) {
-        return -1
-    } else if (stringOne < stringTwo) {
         return 1
+    } else if (stringOne < stringTwo) {
+        return -1
     } else {
         return 0
     }
@@ -203,9 +203,9 @@ function sortDescending(stringOne, stringTwo) {
 
     //if else chain to check if alphabetical order is correct
     if (stringOne > stringTwo) {
-        return 1
-    } else if (stringOne < stringTwo) {
         return -1
+    } else if (stringOne < stringTwo) {
+        return 1
     } else {
         return 0
     }
