@@ -9,21 +9,23 @@
  * and read every instruction carefully.
  */
 
+const { stubArray } = require("lodash")
+
 const { animals } = require("./data");
 
 //////////////////////////////////////////////////////////////////////
 // Step 1 - Search ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-// Implementing a function search to search animals array
+// Implementing a function search to search animals the array
 function search(arr, searchTerm) {
-    for (var i = 0; i <= arr.length; i++) {
-        if (arr[i].name === searchTerm) {
-            return arr[i]
-        } else {
-            return null
-        }
+    var found = arr.find(i => i.name === searchTerm)
+    if (found !== undefined) {
+        return found
+    } else {
+        return null
     }
+    
 }
 
 console.log(search(animals, "Mimi"))
@@ -31,19 +33,45 @@ console.log(search(animals, "Mimi"))
 //////////////////////////////////////////////////////////////////////
 // Step 2 - Replace //////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+function replace(arr, searchTerm, replacementObj) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].name === searchTerm) {
+            arr[i] = replacementObj
+        }
+    }
+}
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Remove ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+function remove(arr, searchTerm) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].name === searchTerm) {
+            arr.splice(i, 1)
+        }
+    }
+}
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+function add(arr, newObj) {
+    var itemExists = false
 
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].name.toLowerCase() === newObj.name.toLowerCase()) {
+            itemExists = true
+        }
+    }
+
+if (itemExists === false && newObj.name.length > 0 && newObj.species.length > 0) {
+    arr.push(newObj)
+}
+
+}
 
 
 /**
