@@ -8,9 +8,9 @@
  * c) else if - also used with an if statement and can be used with an else if statment. It executes if a second condition is true. If not, it either stops or moves on to the else statment
  * 
  * d) switch - simmilar to if else chains, it tests whether a particular condition is true or false. Can also be chained with multiple switch cases. Remember to include a break after each switch case. Can also have a default case if none of the above cases are true just like an else statement.
- * 
  */
 
+// CODE EXAMPLES:
 
 // if statements
 var color = 'red';

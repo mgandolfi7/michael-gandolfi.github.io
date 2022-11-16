@@ -1,15 +1,15 @@
 /**
  * OPERATORS:
  * 
- * a) Assignment Operators:
+ * a) assignment operators - 
  * 
- * b) Arithmetic Operators:
+ * b) arithmetic operators -
  * 
- * c) Comparison Operators:
+ * c) comparison operators -
  * 
- * d) Logical Operators:
+ * d) logical operators -
  * 
- * e) Unary Operators:
+ * e) unary operators -
  * 
- * f) Ternary Operator:
+ * f) ternary operator -
  */

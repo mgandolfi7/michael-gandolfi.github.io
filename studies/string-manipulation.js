@@ -1,9 +1,9 @@
 /**
  * STRING MANIPULATION:
  * 
- * a) With Operators:
+ * a) with operators - 
  * 
- * b) With String Methods:
+ * b) with string methods - 
  * 
  * 
  */

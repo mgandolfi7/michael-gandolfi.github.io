@@ -1,26 +1,25 @@
 /**
  * DATA TYPES:
  * 
- * a) Number:
+ * a) number - 
  * 
- * b) String:
+ * b) string - 
  * 
- * c) Boolean:
+ * c) boolean - 
  * 
- * d) Array:
+ * d) array - 
  * 
- * e) Object:
+ * e) object - 
  * 
- * f) Function:
+ * f) function - 
  * 
- * g) Undefined:
+ * g) undefined - 
  * 
- * h) Null:
+ * h) null - 
  * 
- * i ) NaN:
+ * i ) NaN - 
  * 
- * j) Infinity and -Infinity:
+ * j) infinity and -infinity - 
  * 
- * k) Primitive vs Complex Data Types:
- *      1) Primitive values are passed to a function by copy and complex values are passed to a function by reference
+ * k) primitive vs complex data types - primitive values are passed to a function by copy and complex values are passed to a function by reference
  */
