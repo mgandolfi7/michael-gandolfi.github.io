@@ -38,21 +38,24 @@ function fizzBuzz() {
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard(num) {
-  size = num;
-  let board = "";
+function drawChessboard(input) {
+  let chessBoard = "";
 
-  for (let i = 0; i < size; i++) {
-    for (let j = 0; j < size; j++) {
+  // looping through the input twice
+  for (let i = 0; i < input; i++) {
+    for (let j = 0; j < input; j++) {
       if ((i + j) % 2 === 0) {
-        board += " ";
+        // adding a black space for even iterations
+        chessBoard += " ";
+        // adding a hash simbol for odd iterations
       } else {
-        board += "#";
+        chessBoard += "#";
       }
     }
-    board += "\n"
+    // returning a newline character
+    chessBoard += "\n"
   }
-  console.log(board)
+  console.log(chessBoard)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
