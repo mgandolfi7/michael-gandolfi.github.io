@@ -150,7 +150,13 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
+    // creating an empty array
+    let newArr = [];
 
+    // looping through the array
+    for (let i = 0; i < array.length; i++) {
+        
+    }
 }
 
 //////////////////////////////////////////////////////////////////////

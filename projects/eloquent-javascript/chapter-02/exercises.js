@@ -3,23 +3,56 @@
 // triangles ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function triangles() {
-
+function triangles(num) {
+  // looping 7 times
+  for (let i = '#'; i.length <= num; i += '#') {
+    console.log(i)
+  }
 }
+
+triangles(10)
+
 ////////////////////////////////////////////////////////////////////////////////
 // fizzBuzz ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
 function fizzBuzz() {
-  
+  // looping 15 times
+  for (let i = 1; i <= 15; i++) {
+    // checking to see if i is divisible by 5 and 3
+    if (i % 5 === 0 && i % 3 === 0) {
+      console.log('fizzbuzz');
+      // checking to see if i is divisible by 5
+    } else if (i % 5 === 0) {
+      console.log('buzz')
+      // checking to see if i is divisible by 3
+    } else if (i % 3 === 0) {
+      console.log('fizz')
+    } else {
+      console.log(i)
+    }
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard() {
+function drawChessboard(num) {
+  size = num;
+  let board = "";
 
+  for (let i = 0; i < size; i++) {
+    for (let j = 0; j < size; j++) {
+      if ((i + j) % 2 === 0) {
+        board += " ";
+      } else {
+        board += "#";
+      }
+    }
+    board += "\n"
+  }
+  console.log(board)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
