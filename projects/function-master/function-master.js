@@ -164,11 +164,9 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
     // checking to see if property exists
     if (object.hasOwnProperty(key)) {
         object[key] = value;
-
     // checking to see if the property does not exist
     } else if (!object.hasOwnProperty(key)) {
         object[key] = value;
@@ -199,7 +197,7 @@ function dedup(array) {
     newArr = [...new Set(array)];
     return newArr;
 }
-
+            
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
