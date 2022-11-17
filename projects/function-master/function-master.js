@@ -60,7 +60,6 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-
     // using regex to capitalize all words
     return string.replace(/(^\w|\s\w)/g, m => m.toUpperCase());
 }
@@ -105,7 +104,6 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
     // checking to see if the word exists 
     if (string.indexOf(word) !== -1) {
         return true;
@@ -119,10 +117,8 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
     // pushing friend name to the object
     object.friends.push(name);
-
     return object;
 }
 
@@ -150,13 +146,17 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-    // creating an empty array
+    // creating an empty array 
     let newArr = [];
-
     // looping through the array
     for (let i = 0; i < array.length; i++) {
-        
+        // checking to see if name exists in the array and returning the index of name
+        if (name !== array[i].name && array[i].friends.indexOf(name)) {
+            // pushing non-friends into the empty array
+            newArr.push(array[i].name)
+        }
     }
+    return newArr
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -183,10 +183,8 @@ function updateObject(object, key, value) {
 function removeProperties(object, array) {
     // looping through the array
     for (let i = 0; i < array.length; i++) {
-
         // checking to see if the property exists
         if (object.hasOwnProperty(array[i])) {
-
             // deleting the existing property
             delete object[array[i]];
         }
@@ -200,7 +198,6 @@ function removeProperties(object, array) {
 function dedup(array) {
     // creating an empty array
     let newArr = [];
-
     // ???
     newArr = [...new Set(array)];
     return newArr;
