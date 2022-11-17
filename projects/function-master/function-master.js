@@ -2,8 +2,10 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function objectValues(object) {
+// const { indexOf } = require("lodash")
 
+function objectValues(object) {
+    return Object.values(object); // returns object values in an array
 } 
 
 //////////////////////////////////////////////////////////////////////
@@ -11,7 +13,7 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-
+    return Object.keys(object).join(" "); // returns each key separated by a space
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -19,7 +21,18 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    
+    // creating an empty array
+    let arr = [];
+
+    // looping through object keys
+    for (keys in object) {
+
+        // confirming keys are a string
+        if (typeof object[keys] === 'string') {
+            arr.push(object[keys]);
+        }
+    }
+    return arr.join(" "); // returns each value separated by a space
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -27,7 +40,11 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    
+    if (Array.isArray(collection)) { // returns array if it is an array and object if not
+        return 'array';
+    } else {
+        return 'object';
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -35,7 +52,7 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+    return string.charAt(0).toUpperCase() + string.slice(1); //returns a string with first letter capitalized
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -43,7 +60,9 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
+
+    // using regex to capitalize all words
+    return string.replace(/(^\w|\s\w)/g, m => m.toUpperCase());
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -51,7 +70,7 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-
+    return "Welcome " + object.name.charAt(0).toUpperCase() + object.name.slice(1) + "!"; //returns welcome with name capitalized
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -59,7 +78,7 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-
+    return object.name.charAt(0).toUpperCase() + object.name.slice(1) + " is a " + object.species.charAt(0).toUpperCase() + object.species.slice(1); // returns a string with name and species capitalized
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -67,8 +86,19 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-
+    //testing to see if the noises array exists
+    if (object.hasOwnProperty('noises')) {
+        // if it exists, testing to see if it populated
+        if (object.noises.length !== 0) {
+            return object.noises.join(" ");
+        } else {
+            return 'there are no noises';
+        }
+    } else {
+        return 'there are no noises'; // returns if none of the above work
+    }
 }
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
@@ -76,6 +106,12 @@ function maybeNoises(object) {
 
 function hasWord(string, word) {
 
+    // checking to see if the word exists 
+    if (string.indexOf(word) !== -1) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -84,6 +120,10 @@ function hasWord(string, word) {
 
 function addFriend (name, object) {
 
+    // pushing friend name to the object
+    object.friends.push(name);
+
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -91,6 +131,17 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
+    // checking to see if the friends key exists
+    if (object.hasOwnProperty('friends')) {
+        // checking to see if object.friends includes the friend input
+        if (object.friends.includes(name)) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
 
 }
 
@@ -108,6 +159,15 @@ function nonFriends(name, array) {
 
 function updateObject(object, key, value) {
 
+    // checking to see if property exists
+    if (object.hasOwnProperty(key)) {
+        object[key] = value;
+
+    // checking to see if the property does not exist
+    } else if (!object.hasOwnProperty(key)) {
+        object[key] = value;
+    }
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -115,7 +175,16 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
+    // looping through the array
+    for (let i = 0; i < array.length; i++) {
 
+        // checking to see if the property exists
+        if (object.hasOwnProperty(array[i])) {
+
+            // deleting the existing property
+            delete object[array[i]];
+        }
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -123,7 +192,12 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
+    // creating an empty array
+    let newArr = [];
 
+    // ???
+    newArr = [...new Set(array)];
+    return newArr;
 }
 
 //////////////////////////////////////////////////////////////////////
