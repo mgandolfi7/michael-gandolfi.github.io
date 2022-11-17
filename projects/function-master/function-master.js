@@ -183,11 +183,8 @@ function updateObject(object, key, value) {
 function removeProperties(object, array) {
     // looping through the array
     for (let i = 0; i < array.length; i++) {
-        // checking to see if the property exists
-        if (object.hasOwnProperty(array[i])) {
-            // deleting the existing property
-            delete object[array[i]];
-        }
+        // deleting the existing property
+        delete object[array[i]];
     }
 }
 
