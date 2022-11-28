@@ -21,7 +21,7 @@ var _ = {};
 *   _.identity({a: "b"}) === {a: "b"}
 */
 
-function identity(value) {
+_.identity = function(value) {
     return value
 }
 
@@ -44,6 +44,12 @@ function identity(value) {
 * _.typeOf("javascript") -> "string"
 * _.typeOf([1,2,3]) -> "array"
 */
+
+_.typeOf = function(value) {
+    if (value === 0) {
+
+    }
+}
 
 function typeOf(value) {
     if (typeof value === 'string') {
@@ -122,6 +128,7 @@ function typeOf(value) {
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 
+// FIRST HIGHER ORDER FUNCTION 
 
 /** _.each
 * Arguments:
@@ -138,6 +145,22 @@ function typeOf(value) {
 *   _.each(["a","b","c"], function(e,i,a){ console.log(e)});
 *      -> should log "a" "b" "c" to the console
 */
+
+
+_.each = function(collection, func) {
+    // determine if collection is an array
+    if (Array.isArray(collection)) {
+        // iterate through collection
+        for (let i = 0; i < collection.length; i++) {
+            func(collection[i], i, collection);
+        }
+    } else { // if not an array it is an object
+        // iterate through collection
+        for (let key in collection) {
+            func(collection[key], key, collection);
+        }
+    }
+};
 
 
 /** _.unique
