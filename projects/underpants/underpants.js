@@ -46,17 +46,24 @@ _.identity = function(value) {
 */
 
 _.typeOf = function(value) {
-    if (value === 0) {
-
-    }
-}
-
-function typeOf(value) {
     if (typeof value === 'string') {
         return 'string'
+    } else if (Array.isArray(value)) {
+        return 'array'
+    } else if (Object.prototype.toString.call(value) === '[object Object]') {
+        return 'object'
+    } else if (typeof value === 'undefined') {
+        return 'undefined'
+    } else if (typeof value === 'number') {
+        return 'number'
+    } else if (typeof value === 'boolean') {
+        return 'boolean'
+    } else if (value === null) {
+        return 'null'
+    } else if (typeof value === 'function') {
+        return 'function'
     }
 }
-
 
 /** _.first
 * Arguments:
@@ -76,6 +83,27 @@ function typeOf(value) {
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 
+_.first = function(arr, num) {
+    // declaring an empty array
+    let newArr = []
+
+    // checking to see if the arr input is not an array
+    if (!Array.isArray(arr)) {
+        return [];
+    // checking if num is not a number
+    } else if (typeof num !== 'number') {
+        return arr[0];
+    // checking if num is greater than array length
+    } else if (num > arr.length) {
+        return arr
+    } else {
+        // looping for each number 
+        for (let i = 0; i < num; i++) {
+            newArr.push(arr[i])
+        }
+    }
+    return newArr; // returning the new array 
+}
 
 /** _.last
 * Arguments:
@@ -95,6 +123,28 @@ function typeOf(value) {
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
+_.last = function(arr, num) {
+    // declaring an empty array
+    let newArr = [];
+
+    // checking to see if the arr input is not an array
+    if (!Array.isArray(arr)) {
+        return [];
+    // checking to see if num is not a number
+    } else if (typeof num !== 'number') {
+        return arr[arr.length - 1];
+    // checking to see if num is greater than array length
+    } else if (num > arr.length) {
+        return arr;
+    } else {
+        // looping through each num in reverse
+        for (let i = num; i > 0; i--) {
+            newArr.unshift(arr[i]);
+        }
+    }
+    return newArr; // returning the new array
+}
+
 
 /** _.indexOf
 * Arguments:
@@ -112,6 +162,16 @@ function typeOf(value) {
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
+_.indexOf = function(arr, value) {
+    // looping through the array
+    for (let i = 0; i < arr.length; i++) {
+        // checking to see if the index matches the value
+        if (arr[i] === value) {
+            return i
+        } 
+    }
+    return -1 // return -1 if the loop fails to find a match
+}
 
 /** _.contains
 * Arguments:
@@ -127,6 +187,13 @@ function typeOf(value) {
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
+
+_.contains = function(arr, value) {
+    // looping through the array
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] === value ? true : false
+    }
+}
 
 // FIRST HIGHER ORDER FUNCTION 
 
