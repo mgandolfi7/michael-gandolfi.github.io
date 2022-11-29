@@ -150,7 +150,7 @@ function nonFriends(name, array) {
     let newArr = [];
     // looping through the array
     for (let i = 0; i < array.length; i++) {
-        // checking to see if name exists in the array and returning the index of name
+        // ??????
         if (name !== array[i].name && array[i].friends.indexOf(name)) {
             // pushing non-friends into the empty array
             newArr.push(array[i].name)

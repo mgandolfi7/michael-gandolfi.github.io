@@ -189,10 +189,14 @@ _.indexOf = function(arr, value) {
 */
 
 _.contains = function(arr, value) {
+    // boolean catch variable
+    let itemExists = false;
     // looping through the array
     for (let i = 0; i < arr.length; i++) {
-        arr[i] === value ? true : false
+        // changing itemExists to true if it is found and if not, itemExists remains the same
+        arr[i] === value ? itemExists = true : itemExists;     
     }
+    return itemExists;
 }
 
 // FIRST HIGHER ORDER FUNCTION 
