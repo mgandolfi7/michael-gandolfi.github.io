@@ -279,10 +279,12 @@ _.filter = function(arr, func) {
     let newArr = [];
     // looping through the array
     for (let i = 0; i < arr.length; i++) {
-        if (arr) {
-
+        if (func(arr[i], i, arr)) {
+            // pushing elements to the new array
+            newArr.push(arr[i]);
         }
     }
+    return newArr;
 }
 
 
@@ -299,6 +301,19 @@ _.filter = function(arr, func) {
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
+
+_.reject = function(arr, func) {
+    // creating an empty array
+    let newArr = [];
+    // looping through the array
+    for (let i = 0; i < arr.length; i++) {
+        // testing if func is not 
+        if (!func(arr[i], i, arr)) {
+            newArr.push(arr[i])
+        }
+    }
+    return newArr;
+}
 
 
 /** _.partition
@@ -320,6 +335,14 @@ _.filter = function(arr, func) {
 }
 */
 
+_.partition = function(arr, func) {
+
+
+    for (let i = 0; i < arr.length; i++) {
+        func(arr[i], )
+    }
+}
+
 
 /** _.map
 * Arguments:
@@ -337,6 +360,26 @@ _.filter = function(arr, func) {
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+_.map = function(collection, func) {
+    // creating an empty array
+    let newArr = [];
+    // testing if collection is an array
+    if (Array.isArray(collection)) {
+        // looping through the array
+        for (let i = 0; i < collection.length; i++) {
+            // pushing the result of function call into a new array
+            newArr.push(func(collection[i], i, collection));
+        }
+    } else { // else it's an object 
+        // looping through the object
+        for (let key in collection) {
+            // pushing result of function call into the new array
+            newArr.push(func(collection[key], key, collection));
+        }
+    }
+    return newArr;
+}
+
 
 /** _.pluck
 * Arguments:
@@ -348,6 +391,12 @@ _.filter = function(arr, func) {
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+
+_.pluck = function (arr, property) {
+    // creating an empty array
+    let newArr = [];
+
+}
 
 
 /** _.every
@@ -392,14 +441,11 @@ _.every = function(collection, func) {
         }
     } else { //else it's an object
         // determine if func wasn't passed in
-        if (func === undefined) {
-
-        } else {
+        if (Array.isArray(collection)) {
 
         }
 
     }
-
     // what do we return here?
 }
 
@@ -446,6 +492,14 @@ _.every = function(collection, func) {
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
+
+
+_.reduce = function(arr, func, seed) {
+    let result;
+    for (let i = 0; i < arr.length; i++) {
+        func(result, arr[i], i)
+    }
+}
 
 
 /** _.extend
