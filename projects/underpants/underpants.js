@@ -244,6 +244,19 @@ _.each = function(collection, func) {
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
+_.unique = function(arr) {
+    // creating a new array
+    let newArr = [];
+    // looping through the array
+    for (let i = 0; i < arr.length; i++) {
+        // using indexOf to see if the arr exists in newArr
+        if (_.indexOf(newArr, arr[i]) === -1) {
+            newArr.push(arr[i]);
+        }
+    }
+    return newArr;
+}
+
 
 /** _.filter
 * Arguments:
@@ -260,6 +273,18 @@ _.each = function(collection, func) {
 * Extra Credit:
 *   use _.each in your implementation
 */
+
+_.filter = function(arr, func) {
+    // creating an empty array 
+    let newArr = [];
+    // looping through the array
+    for (let i = 0; i < arr.length; i++) {
+        if (arr) {
+
+        }
+    }
+}
+
 
 
 /** _.reject
@@ -345,6 +370,40 @@ _.each = function(collection, func) {
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
+
+_.every = function(collection, func) {
+    // determine if collection is an array
+    if (Array.isArray(collection)) {
+    // determine if func wasn't passed in
+        if (func === undefined) {
+            for (let i = 0; i < collection.length; i++) {
+                // determine if current item is NOT truthy
+                if (!collection[i]) { // determine if collection[i] is NOT truthy
+                    return false
+                }
+            }
+        } else {
+            for (let i = 0; i < collection.length; i++) {
+                // determine if current value returns false when passed into func
+                if (func(collection[i], i, collection) === false) {
+                    return false
+                }
+            }
+        }
+    } else { //else it's an object
+        // determine if func wasn't passed in
+        if (func === undefined) {
+
+        } else {
+
+        }
+
+    }
+
+    // what do we return here?
+}
+
+
 
 
 /** _.some
