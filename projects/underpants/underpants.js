@@ -509,10 +509,22 @@ _.every = function(collection, func) {
 
 
 _.reduce = function(arr, func, seed) {
+    // create result variable
     let result;
-    for (let i = 0; i < arr.length; i++) {
-        func(result, arr[i], i)
+    // determine if seed did not receive a value
+    if (seed === undefined) {
+        result = arr[0];
+        for (let i = 1; i < arr.length; i++) {
+            result = func(result, arr[i], i, arr)
+        }
+    } else { // else it did
+        result = seed;
+        for (let i = 0; i < arr.length; i++) {
+            result = func(result, arr[i], i, arr)
+        }
     }
+    
+    return result;
 }
 
 
