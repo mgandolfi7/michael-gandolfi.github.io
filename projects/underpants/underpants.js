@@ -504,6 +504,53 @@ _.every = function(collection, func){
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+_.some = function(collection, func){
+    if(func === undefined ){
+        //determine if collection is an array
+        if(Array.isArray(collection)){
+            //iterate through collections array
+            for(let i = 0; i < collection.length; i++){
+                //determine if collection[i] is falsy
+                if(collection[i]){
+                    //return true;
+                    return true;
+                }
+            }
+        } else { //else
+            //iterate through object
+            for(let key in collection){
+                //determine if collection[key] is falsy
+                if(collection[key]){
+                    //return true;
+                    return true;
+                }
+            }
+        }
+    } else{ //else
+        //determine if collection is an array
+        if(Array.isArray(collection)){
+            //iterate through collections array
+            for(let i = 0; i < collection.length; i++){
+                //determine if invoking func on the params is true
+                if(func(collection[i], i, collection) === true){
+                    //return true
+                    return true;
+                }
+            }
+        } else{ //else its an object
+            //iterate through object
+            for(let key in collection){
+                //determine if invoking func on the params is true
+                if(func(collection[key], key, collection) === true)
+                {   //return true;
+                    return true;
+                }
+            }
+        }
+    }//return false
+    return false;
+     }
+
 
 /** _.reduce
 * Arguments:
