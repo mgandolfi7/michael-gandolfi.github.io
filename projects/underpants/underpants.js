@@ -309,7 +309,7 @@ _.reject = function(arr, func) {
     for (let i = 0; i < arr.length; i++) {
         // testing if func is not 
         if (!func(arr[i], i, arr)) {
-            newArr.push(arr[i])
+            newArr.push(arr[i]);
         }
     }
     return newArr;
@@ -336,11 +336,23 @@ _.reject = function(arr, func) {
 */
 
 _.partition = function(arr, func) {
+    // creating three arrays
+    let arrTruthy = [];
+    let arrFalsy = [];
+    let combined = [arrTruthy, arrFalsy]
 
-
+    // looping through the array
     for (let i = 0; i < arr.length; i++) {
-        func(arr[i], )
+        // pushing elements that are truthy
+        if (func(arr[i], i, arr)) {
+            arrTruthy.push(arr[i]);
+        } else {
+            // pushing elements that are falsy
+            arrFalsy.push(arr[i]);
+        }
     }
+    // returning combined arrays
+    return combined;
 }
 
 
@@ -394,8 +406,11 @@ _.map = function(collection, func) {
 
 _.pluck = function (arr, property) {
     // creating an empty array
-    let newArr = [];
+    let newArr = _.map(arr, function(item) {
+        return item[property];
+    });
 
+    return newArr;
 }
 
 
@@ -441,13 +456,12 @@ _.every = function(collection, func) {
         }
     } else { //else it's an object
         // determine if func wasn't passed in
-        if (Array.isArray(collection)) {
-
+        if (test) {
+            
         }
-
     }
-    // what do we return here?
 }
+    // what do we return here?
 
 
 
