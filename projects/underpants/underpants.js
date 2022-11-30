@@ -339,7 +339,7 @@ _.partition = function(arr, func) {
     // creating three arrays
     let arrTruthy = [];
     let arrFalsy = [];
-    let combined = [arrTruthy, arrFalsy]
+    let combined = [arrTruthy, arrFalsy];
 
     // looping through the array
     for (let i = 0; i < arr.length; i++) {
@@ -435,35 +435,52 @@ _.pluck = function (arr, property) {
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
-_.every = function(collection, func) {
-    // determine if collection is an array
-    if (Array.isArray(collection)) {
-    // determine if func wasn't passed in
-        if (func === undefined) {
-            for (let i = 0; i < collection.length; i++) {
-                // determine if current item is NOT truthy
-                if (!collection[i]) { // determine if collection[i] is NOT truthy
-                    return false
+_.every = function(collection, func){
+    if(func === undefined ){
+        //determine if collection is an array
+        if(Array.isArray(collection)){
+            //iterate through collections array
+            for(let i = 0; i < collection.length; i++){
+                //determine if collection[i] is truthy
+                if(!collection[i]){
+                    //return false;
+                    return false;
                 }
             }
-        } else {
-            for (let i = 0; i < collection.length; i++) {
-                // determine if current value returns false when passed into func
-                if (func(collection[i], i, collection) === false) {
-                    return false
+        } else { //else
+            //iterate through object
+            for(let key in collection){
+                //determine if collection[key] is truthy
+                if(!collection[key]){
+                    //return false;
+                    return false;
                 }
             }
         }
-    } else { //else it's an object
-        // determine if func wasn't passed in
-        if (test) {
-            
+    } else{ //else
+        //determine if collection is an array
+        if(Array.isArray(collection)){
+            //iterate through collections array
+            for(let i = 0; i < collection.length; i++){
+                //determine if invoking func on the params is false
+                if(func(collection[i], i, collection) === false){
+                    //return false
+                    return false;
+                }
+            }
+        } else{ //else its an object
+            //iterate through object
+            for(let key in collection){
+                //determine if invoking func on the params is false
+                if(func(collection[key], key, collection) === false)
+                {   //return false;
+                    return false;
+                }
+            }
         }
-    }
-}
-    // what do we return here?
-
-
+    }//return true
+    return true;
+     }
 
 
 /** _.some
