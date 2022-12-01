@@ -3,7 +3,7 @@
 'use strict';
 
 var customers = require('./data/customers.json');
-var _ = require(/* Replace this with the name of your lodown! */);
+var _ = require('underbar');
 
 /**
  * 1. Import your lodown module using the require() method,
@@ -16,32 +16,102 @@ var _ = require(/* Replace this with the name of your lodown! */);
  *
  * 4. To test your work, run the following command in your terminal:
  *
- *    npm start --prefix ./<YOUR_GITHUB_FOLDER/projects/let-s-get-functional
+ *    npm start --prefix ./michael-gandolfi.github.io/projects/let-s-get-functional
  *
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
 
 var maleCount = function(array) {
+    let males = _.filter(array, function(customer) {
+        // checking if gender is male
+        if (customer.gender === 'male') {
+            return true
+        } else {
+            return false
+        }
+    });
+    // returning the length of the new array
+    return males.length;
+};
+
+var femaleCount = function(array) {
+    let females = _.reduce(array, function(acc, c) {
+        // determine if the current item in the array is female
+        if (c.gender === 'female') {
+            return acc + 1;
+        } 
+        return acc;
+    }, 0);
+    return females;
+};
+
+var oldestCustomer = function(array) {
+    let oldest = _.reduce(array, function(acc, c) {
+        // checking if the acc is greater than cc
+        if (acc.age > c.age) {
+            return acc;
+        } else {
+            return c;
+        }
+    });
+    // returning the name of the oldest customer
+    return oldest.name;
+};
+
+var youngestCustomer = function(array) {
+    // checking if the acc is less than the c
+    let youngest = _.reduce(array, function(acc, c) {
+        if (acc.age < c.age) {
+            return acc;
+        } else {
+            return c;
+        }
+    });
+    // returning the name of the youngest customer
+    return youngest.name; 
+};
+
+var averageBalance = function(array) {
+    // creating avg variable
+    let avg = _.reduce(array, function(acc, c) {
+        // converting balance to a number
+    let currentNumber = Number(c.balance.replace(/[$,]+/g,""))
+    return acc += currentNumber;
+    }, 0);
+    // dividing acc by number of customers
+    return avg / array.length;
+};
+
+//filter
+var firstLetterCount = function(array) {
 
 };
 
-var femaleCount;
+var friendFirstLetterCount = function(array) {
 
-var oldestCustomer;
+};
 
-var youngestCustomer;
+// filter
+var friendsCount = function(array) {
 
-var averageBalance;
+};
 
-var firstLetterCount;
+var topThreeTags = function(array) {
 
-var friendFirstLetterCount;
+};
 
-var friendsCount;
-
-var topThreeTags;
-
-var genderCount;
+var genderCount = function(array) {
+    let genders = _.reduce(array, function(acc, c) {
+        if (acc[c.gender]) {
+            acc[c.gender] += 1;
+        } else {
+            acc[c.gender] = 1;
+        }
+        return acc;
+    }, {});
+    // returning gender object
+    return genders;
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
