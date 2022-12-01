@@ -1,15 +1,15 @@
 /**
- * LOOPS: - loops are a way for us to iterate over data a set number of times.
+ * LOOPS: - loops are a way for us to iterate over data a set number of times
  * 
- * a) for loops - reat for iterating over data in an array because we can use it to access an array's index values. Use the .length property on an array to get your loop stop condition.
+ * a) FOR LOOPS - great for iterating over data in an array because we can use it to access an array's index values. Use the .length property on an array to get your loop stop condition.
  * 
  * 
- * b) while loops - great for iterating over a set number of times when you know the amount of times.
+ * b) WHILE LOOPS - great for iterating over a set number of times when you know the amount of times.
  * 
- * c) for in loops - great for iterating through an objects keys and or values.
+ * c) FOR IN LOOPS - great for iterating through an objects keys and or values.
  */
 
-// CODE EXAMPLES:
+// FOR LOOPS
 
 // The three types of loops we have learned about are for loops, while loops, and for in loops. Each have their own use cases and best practices.
 
@@ -38,7 +38,9 @@ for (var i = 1; i <= 5; i++) {
   }
   
 // In this loop we start at 10 and end at i > 0 so 1 and instead of incrementing i each loop we decrement i. Now moving onto the while loop. The while loop is great for iterating over something a set number of times. While for loops are great if you don't know the number of times you want to loop, while loops are great if you DO know.
-  
+ 
+// WHILE LOOPS
+
   var arr2 = [10,5,44];
   
   
@@ -48,7 +50,9 @@ for (var i = 1; i <= 5; i++) {
   console.log(arr2); // prints [10, 5, 44, random1, random2,random3, random4].
   
 // In this example we have an array with three values and are going to use a while loop with the condition of the array's length is less than seven. To prevent this from becoming an infinite loop, we will push a random number of 1 - 100 to the array each loop. As soon as the contents of the loop become falsy, the while loop stops. In this case, it stops after the array has seven values. For while loops it's easy to end up with an infinite loop so be careful!
-  
+
+// FOR IN LOOPS
+
 // Lastly, we have a for in loop. For in loops are great for iterating over an object's keys or values. In this example we have an object called "michael" with three keys and three values. to loop over just the keys we can console.log the keys.
   
   var michael = {

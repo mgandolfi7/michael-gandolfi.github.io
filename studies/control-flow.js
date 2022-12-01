@@ -1,43 +1,46 @@
 /**
  * CONTROL FLOW: when you write code, you may want to perform different actions based on different conditions. Enter conditional statements.
  * 
- * a) if - tests a specific condition to be true or false and if true, the block of code executes. If false it either moves on if there is/are else statements or stops.
+ * a) IF - tests a specific condition to be true or false and if true, the block of code executes. If false it either moves on if there is/are else statements or stops.
  * 
- * b) else - used with an if statement to execute a block of code if the condition from the previous if statement is false.
+ * b) ELSE - used with an if statement to execute a block of code if the condition from the previous if statement is false.
  * 
- * c) else if - also used with an if statement and can be used with an else if statment. It executes if a second condition is true. If not, it either stops or moves on to the else statment
+ * c) ELSE IF - also used with an if statement and can be used with an else if statment. It executes if a second condition is true. If not, it either stops or moves on to the else statment
  * 
- * d) switch - simmilar to if else chains, it tests whether a particular condition is true or false. Can also be chained with multiple switch cases. Remember to include a break after each switch case. Can also have a default case if none of the above cases are true just like an else statement.
+ * d) SWITCH - simmilar to if else chains, it tests whether a particular condition is true or false. Can also be chained with multiple switch cases. Remember to include a break after each switch case. Can also have a default case if none of the above cases are true just like an else statement.
  */
 
-// CODE EXAMPLES:
 
-// if statements
+// IF
+
 var color = 'red';
 
 if (color === 'red') {
-    console.log('the color you picked is red') // will log to the console because the statement is true
+    console.log('the color you picked is red') // will log to the console because the statement is true.
 }
 
 if (color === 'black') {
-    console.log('the color you picked is black') // will not log anything to the console because the statement is false
+    console.log('the color you picked is black') // will not log anything to the console because the statement is false.
 }
 
-// if else
+// IF ELSE
+
 if (color === 'green') {
 console.log('the color you picked is green')
 } else {
-    console.log('the color you picked is NOT green') // will log to the console since the if condition is false
+    console.log('the color you picked is NOT green') // will log to the console since the if condition is false.
 }
 
-// else if
+// ELSE IF
+
 if (color === 'purple') {
     console.log('the color you picked is purple')
 } else if (color === 'red') {
-    console.log('the color you picked is red') // will log to the console since the first if statement is false but the else if is true
+    console.log('the color you picked is red') // will log to the console since the first if statement is false but the else if is true.
 }
 
-// switch statements
+// SWITCH
+
 switch (color) {
     case 'red':
         console.log('the color you picked is red');
