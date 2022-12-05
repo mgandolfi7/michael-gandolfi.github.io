@@ -95,14 +95,19 @@ var firstLetterCount = function(array, letter) {
 
 
 var friendFirstLetterCount = function(array, customer, letter) {
+    // looping through the input array
     for (let i = 0; i < array.length; i++) {
+        // checking to see if the current name is equal to the customer name
         if (array[i].name === customer) {
+            // filtering through the friends array
             let friends = _.filter(array[i].friends, function(friend) {
+                    // checking to see if friend name starts with the given letter
                     if (friend.name[0].toLowerCase() === letter.toLowerCase()) {
                         return true;
                     }
                 }
             )
+            // returning the length of the friends array
             return friends.length;
         }
     }
@@ -111,7 +116,7 @@ var friendFirstLetterCount = function(array, customer, letter) {
 
 // filter
 var friendsCount = function(array, name) {
-
+    
 };
 
 var topThreeTags = function(array) {
