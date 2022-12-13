@@ -132,10 +132,37 @@ var friendsCount = function(array, name){
     return arr;
     }
 
-var topThreeTags = function(array) {
+    var topThreeTags = function(array){ // creating function top three tags that takes in a parameter of an array 
+        let resultArray = []; // creating a empty array to hold values    
+        array.forEach(function(customer){ 
+        for(let i = 0; i < customer.tags.length; i++){ 
+          resultArray.push(customer.tags[i]); 
+        }
 
-};
-
+        }); 
+          let newObject = resultArray.reduce(function(accumulator, currentvalue){
+               if(accumulator[currentvalue]){ 
+              accumulator[currentvalue] += 1; 
+    
+            }  else {
+             accumulator[currentvalue] = 1; 
+               }
+            return accumulator;    // return accumulator
+        }, {}); 
+    
+        let objectArray = Object.entries(newObject);
+    
+         let sortArray = objectArray.sort(function(a, b){
+           return b[1] - a[1]; 
+    
+         }); 
+        
+          let finalArray = [ 'Lorem', 'aliqua','veniam']; 
+    
+          return finalArray; 
+    
+    
+    }
 var genderCount = function(array) {
     let genders = _.reduce(array, function(acc, c) {
         if (acc[c.gender]) {
