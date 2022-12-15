@@ -2,6 +2,8 @@
 // flatten /////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
+const { characterScript } = require("./helpers");
+
 function flatten(array) {
   return array.reduce((flat, current) => flat.concat(current), []);
 };
@@ -31,15 +33,27 @@ function every(array, predicate) {
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function dominantDirection(text) {
-  let counted = countBy(text, char => {
-    let script = characterScript(char.codePointAt(0));
-    return script ? script.direction : "none";
-  }).filter(({name}) => name != "none");
+function dominantDirection(str) {
+  // create arrays to store ltr and rtl
+  let ltr = [];
+  let rtl = [];
 
-  if (counted.length == 0) return "ltr";
+  for (let i = 0;  i < str.length; i++) {
+    let script = characterScript(str.charCodeAt(i));
 
-  return counted.reduce((a, b) => a.count > b.count ? a : b).name;
+    if (script !== null) {
+      if (script.direction === 'ltr') {
+        ltr.push(script);
+      } else if (script.direction === 'rtl') {
+        rtl.push(script);
+      }
+    }
+  }
+  if (ltr.length > rtl.length) {
+    return 'ltr';
+  } else {
+    return 'rtl';
+  }
 };
 
 // /////////////////////////////////////////////////////////////////////////////

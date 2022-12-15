@@ -144,9 +144,11 @@ var dogsWithClasses = dogContestants;
 
 // 6.
 var firstInClass = function(array, output={}) {
+    // base
     if (array.length === 0) {
     return output;
     }
+    // recursion
     output = {...output, ...array[0]};
     return firstInClass(array.slice(1), output)
 };
