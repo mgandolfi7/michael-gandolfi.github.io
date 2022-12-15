@@ -103,19 +103,18 @@ var contestants = function(array) {
 
 // 3.
 
-var filterSpecies = filtered(dogs);
+
 
 function filtered(array) {
     let dogs = array.filter(function(animal) {
         if (animal.species === 'dog') {
             return true;
-        } else {
-            return false;
         }
     });
     return dogs;
 };
 
+var filterSpecies = filtered(dogs);
 
 
 
@@ -145,12 +144,11 @@ var dogsWithClasses = dogContestants;
 
 // 6.
 var firstInClass = function(array, output={}) {
-// base
-if (array.length === 0) {
+    if (array.length === 0) {
     return output;
-}
-// recursion
-
+    }
+    output = {...output, ...array[0]};
+    return firstInClass(array.slice(1), output)
 };
 
 
