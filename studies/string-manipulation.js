@@ -1,5 +1,5 @@
 /**
- * STRING MANIPULATION:
+ * STRING MANIPULATION: string manipulation allows us to manipulate and modify strings.
  * 
  * a) WITH OPERATORS - allow us to concatenate two strings together using the '+' operator.
  * 
