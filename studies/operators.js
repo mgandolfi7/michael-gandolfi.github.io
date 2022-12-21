@@ -119,6 +119,48 @@ console.log(t > 10 && t < 30); // returns false.
 let u = 40;
 console.log(u > 10 || u < 30); // returns true.
 
+// UNARY OPERATORS
+
+// using the unary plus operator to convert the operand into a number.
+
+let string = '44';
+
+let number = +string;
+
+console.log(number); // number is now 44 since the unary operator converts it to a number.
+
+
+// using the unary minus operator to convert the operand into a number and negating it.
+
+let string2 = '30';
+
+let number2 = -string2; 
+
+console.log(number2); // number2 is now -30 since the unary operator converts it to a number and then negates it.
+
+// incrementing a variable using the ++ operator.
+
+let count = 5;
+
+count++;
+
+console.log(count) // count is now 6.
+
+// decrementing a variable using the -- operator.
+
+let count2 = 4;
+
+count--;
+
+console.log(count); // count is now 3.
+
+// comparing two values using the logical NOT operator.
+
+const var1 = 5;
+const var2 = 10;
+
+console.log(!(var1 > var2)); // will log true to the console since the logical NOT checks if something is not true.
+
 // TERNARY OPERATOR
 
 // checking if a condition is true and executing either functionA or functionB.

@@ -59,7 +59,7 @@ function operatingSystem() {
     logIn();
 
 }
-operatingSystem();
+operatingSystem(); // mgandolfi will be printed to the console.
 
 
 

@@ -20,7 +20,7 @@ for (var i = 1; i <= 5; i++) {
     console.log('Hello World'); // prints 'Hello World' x5.
   }
   
-// Looking inside the parenthesis, it is important to initialize i with the var keyword. It is common practice to use i or "index" for the loop but it will work with any variable name. i = 1 is the starting point of the loop, i <= 5 is the ending point of the loop, and i++ is our counter. In this example every loop or iteration, 1 is added to i until it reaches 5. Now lets say we want to loop over an array of numbers and get the sum.
+// A for loop is comprised of 3 statements: start, stop, and update. Start defines a counting variable, stop defines a condition that when false exits the loop, and update defines how to increment or decrement the counting variable.
   
   var arr = [1,32,5,10,50,22,11];
   
@@ -38,16 +38,24 @@ for (var i = 1; i <= 5; i++) {
   }
   
 // In this loop we start at 10 and end at i > 0 so 1 and instead of incrementing i each loop we decrement i. Now moving onto the while loop. The while loop is great for iterating over something a set number of times. While for loops are great if you don't know the number of times you want to loop, while loops are great if you DO know.
+
+// Now for the next example let's loop through an array backwards.
+
+let arr2 = [10, 55, 98, 4, 31];
+
+for (let i = arr2.length - 1; i >= 0; i--) {
+  console.log(arr2[i]); // prints 31, 4, 98, 55, 10 to the console.
+}
  
 // WHILE LOOPS
 
-  var arr2 = [10,5,44];
+  var arr3 = [10,5,44];
   
   
-  while (arr2.length < 7) {
-    arr2.push(Math.floor((Math.random() * 100)));
+  while (arr3.length < 7) {
+    arr3.push(Math.floor((Math.random() * 100)));
   }
-  console.log(arr2); // prints [10, 5, 44, random1, random2,random3, random4].
+  console.log(arr3); // prints [10, 5, 44, random1, random2,random3, random4].
   
 // In this example we have an array with three values and are going to use a while loop with the condition of the array's length is less than seven. To prevent this from becoming an infinite loop, we will push a random number of 1 - 100 to the array each loop. As soon as the contents of the loop become falsy, the while loop stops. In this case, it stops after the array has seven values. For while loops it's easy to end up with an infinite loop so be careful!
 

@@ -11,7 +11,8 @@
 // DECLARATION AND ASSIGNMENT
 
 // declaring a variable using var without assigning it to a value (initializing it).
-var message;
+var message; 
+console.log(message); // logging it will print undefined since the variable has no value.
 
 // declaring a variable using and assigning it to a value on the same line.
 var message = 'good morning!';
@@ -38,10 +39,28 @@ for (var j = 0; j < 5; j++) {
     // code to be executed.
 }
 
-// declaring a variable using const and then trying to re-assign it.
+// declaring a variable using const and then trying to reassign it.
 const pi = 3.14;
 
 pi = 4 // will throw a TypeError since you can't re-assign a constant variable.
+
+// declaring a variable using let and then trying to reassign it.
+
+let height = 100;
+
+height = 50; // will work since let can be reassigned.
+
+// declaring a variable using const and trying to redeclare it.
+
+const circumference = 30.8;
+
+const circumference = 40.9; // will throw an error saying circumference has already been declared.
+
+// declaring a variable using let and trying to redeclare it.
+
+let width = 20;
+
+let width = 30; // will throw an error saying width has already been declared.
 
 // HOISTING
 
